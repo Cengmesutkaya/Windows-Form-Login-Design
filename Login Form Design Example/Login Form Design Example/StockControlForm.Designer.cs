@@ -150,6 +150,7 @@
             this.Controls.Add(this.materialTabSelector1);
             this.Controls.Add(this.materialTabControl1);
             this.Name = "StockControlForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Stock Control Form";
             this.materialTabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
