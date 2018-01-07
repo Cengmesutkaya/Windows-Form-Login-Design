@@ -28,6 +28,13 @@ namespace Login_Form_Design_Example
             {
                 if (txtUserName.Text == "mesut" && txtPassword.Text == "123")
                 {
+                    if (cbxRemember.Checked)
+                    {
+                        Properties.Settings.Default.UserName = txtUserName.Text;
+                        Properties.Settings.Default.Password = txtPassword.Text;
+                        Properties.Settings.Default.CheckBox = cbxRemember.Checked;
+                        Properties.Settings.Default.Save();
+                    }
                     StockControlForm stfrm = new StockControlForm();
                     stfrm.Show();
                     this.Hide();
@@ -40,6 +47,15 @@ namespace Login_Form_Design_Example
                     lblErrorMessage.Text = "Kullanıcı veya şifre yanlış!";
                 }
             }
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+            cbxRemember.Checked = Properties.Settings.Default.CheckBox;
+            txtUserName.Text = Properties.Settings.Default.UserName;
+            txtPassword.Text = Properties.Settings.Default.Password;
+
         }
     }
 }
